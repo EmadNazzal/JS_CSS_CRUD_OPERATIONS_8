@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD System | JS</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="crud">
+      <div class="header">
+        <h2><i class="fa-solid fa-calculator"></i>CRUD SYSTEM</h2>
+        <p>Product Managment System</p>
+        <div class="crud-icons">
+          <h3>Create</h3>
+          <i class="fa-solid fa-folder-plus"></i>
+          <h3>Read</h3>
+          <i class="fa-solid fa-book-open"></i>
+          <h3>Update</h3>
+          <i class="fa-solid fa-file-pen"></i>
+          <h3>Delete</h3>
+          <i class="fa-solid fa-trash-can"></i>
+        </div>
+      </div>
+      <div class="inputs">
+        <input type="text" name="title" id="title" placeholder="title" />
+        <div class="grouped-inputs">
+          <input
+            type="number"
+            onkeyup="getTotal()"
+            placeholder="Price"
+            id="price"
+            name="price"
+          />
+          <input
+            type="number"
+            onkeyup="getTotal()"
+            name="tax"
+            id="taxes"
+            placeholder="Tax"
+          />
+          <input
+            onkeyup="getTotal()"
+            type="number"
+            id="ads"
+            placeholder="Advertisments"
+            name="ads"
+          />
+          <input
+            onkeyup="getTotal()"
+            type="number"
+            id="discount"
+            placeholder="Discount"
+            name="discount"
+          />
+          <small class="total" id="total"></small>
+        </div>
+        <div class="category-create">
+          <input type="number" placeholder="Count" id="count" name="count" />
+          <input
+            type="text"
+            placeholder="Category"
+            id="category"
+            name="Category"
+          />
+          <button class="submit" id="submit">Create</button>
+        </div>
+      </div>
+      <hr />
+      <div class="outputs">
+        <div class="search-Block">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            onkeyup="searchData(this.value)"
+            placeholder="Search"
+            type="text"
+            name="search"
+            id="search"
+          />
+          <button onclick="getSearchAction(this.id)" id="SearchByTitle">
+            Search By Title
+          </button>
+          <button onclick="getSearchAction(this.id)" id="SearchByCategory">
+            Search By Category
+          </button>
+        </div>
+        <button id="deletee" onclick="DeleteAll()">Delete All</button>
+
+        <table id="table" class="rtable">
+          <thead>
+            <tr>
+              <td>id</td>
+              <td>Title</td>
+              <td>Price</td>
+              <td>Tax</td>
+              <td>Advertisments</td>
+              <td>Discount</td>
+              <td>Total</td>
+              <td>Category</td>
+              <td>Update</td>
+              <td>Delete</td>
+            </tr>
+          </thead>
+
+          <tbody id="tbody">
+            <!-- <tr>
+              <td>235</td>
+              <td>Iphone</td>
+              <td>200 USD</td>
+              <td>12%</td>
+              <td>15</td>
+              <td>15</td>
+              <td>2541</td>
+              <td>Cell</td>
+              <td><button id="update">Update</button></td>
+              <td><button id="delete">Delete</button></td>
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
